@@ -10,9 +10,6 @@ from nltk.corpus import stopwords
 # Define the folder path where the text files are located
 folder_path = 'source files/'
 
-# Define the number of links to scrape from each file
-num_links = 10
-
 # Load the NLTK stopwords
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
@@ -22,6 +19,9 @@ for file_name in os.listdir(folder_path):
     # Read the list of URLs from the current text file
     with open(folder_path + file_name, 'r') as f:
         urls = f.readlines()[:num_links]
+    
+    # Define the number of links to scrape from each file
+    num_links = 10
 
     # Loop through the URLs and scrape the data
     word_counter = Counter()
