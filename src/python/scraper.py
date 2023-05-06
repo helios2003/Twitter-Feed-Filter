@@ -16,12 +16,11 @@ stop_words = set(stopwords.words('english'))
 
 # Loop through each text file in the folder
 for file_name in os.listdir(folder_path):
+    # Define the number of links to scrape from each file
+    num_links = 10
     # Read the list of URLs from the current text file
     with open(folder_path + file_name, 'r') as f:
         urls = f.readlines()[:num_links]
-    
-    # Define the number of links to scrape from each file
-    num_links = 10
 
     # Loop through the URLs and scrape the data
     word_counter = Counter()
