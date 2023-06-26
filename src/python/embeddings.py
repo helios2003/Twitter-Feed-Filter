@@ -7,12 +7,10 @@ import torch
 import pandas as pd
 from transformers import BertTokenizer, BertModel
 
-def embeddings():
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    model = BertModel.from_pretrained("bert-base-uncased")
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+model = BertModel.from_pretrained("bert-base-uncased")
 
-    # Define a function to create embeddings for each tweet
-    def create_avg_embeddings(tweet):
+def create_avg_embeddings(tweet):
         # Tokenize the tweet and convert tokens to IDs
         inputs = tokenizer.encode_plus(tweet, add_special_tokens=True, return_tensors='pt')
 
@@ -20,10 +18,10 @@ def embeddings():
         with torch.no_grad():
             outputs = model(**inputs)
             embeddings = outputs.last_hidden_state.mean(dim=1).squeeze()
-
         # Convert embeddings to a numpy array and return it
         return embeddings.mean(dim=0).numpy()
 
+def embeddings():
     # Create the 'data' directory if it doesn't exist
     data_folder = 'data/'
     os.makedirs(data_folder, exist_ok=True)
@@ -159,6 +157,3 @@ def embeddings():
             # Save the "Tweet" column to a new CSV file in the answers directory
             output_file_path = os.path.join(output_directory, output_filename)
             df['Tweet'].to_csv(output_file_path, index=False)
-
-
-#embeddings()

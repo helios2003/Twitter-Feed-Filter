@@ -6,21 +6,22 @@ It helps in keeping the feed clean and improves the User experience while using 
 
 An external twitter scraper is being which scrapes the tweets using Golang. The steps to install it are as follows:
 ## Requirements before downloading the Twitter Scraper
-Install Go from the website
+Install Golang from the website
 
 ### Enable dependency tracking for your code
-For enabling dependency tracking of the code you have to create a go.mod file
-Run the command 
-```
-go mod init [path-to-module]
-```
-path-to-module needs to be the location of a remote repository from where Go can download the source code.
-Typically, it's of the format
+For enabling dependency tracking of the code you have to create a go.mod file. **[path-to-module]** needs to be the location of a remote repository from where Go can download the source code.<br />
+Following are the steps to create **[path-to-module]**.
+* Create a fork of the repository https://github.com/n0madic/twitter-scraper
+* Typically, it's of the format:
 ```
 <prefix>/<descriptive-text>
 ```
 Example: github.com/<project-name>
-
+* Here it is <github.com/your-username/twitter-scraper>.
+* Now, run the command 
+```
+go mod init [path-to-module]
+```
 ## Installation of the scraper
 
 ```shell
