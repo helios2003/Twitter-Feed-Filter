@@ -7,8 +7,8 @@ import torch
 import pandas as pd
 from transformers import BertTokenizer, BertModel
 
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-model = BertModel.from_pretrained("bert-base-uncased")
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', from_tf=True)
+model = BertModel.from_pretrained("bert-base-uncased", from_tf=True)
 
 def create_avg_embeddings(tweet):
         # Tokenize the tweet and convert tokens to IDs
@@ -73,13 +73,10 @@ def embeddings():
             output_filepath = os.path.join(output_directory, output_filename)
             df.to_csv(output_filepath, index=False)
 
-    # Define the directory path containing the CSV files
     directory = 'embeddings/'
 
-    # Initialize the list for mean embedding differences
     mean_embedding_diff = []
 
-    # Loop through all the CSV files in the directory
     for i, filename in enumerate(os.listdir(directory)):
         if filename.endswith('.csv'):
             # Read the CSV file
@@ -88,11 +85,8 @@ def embeddings():
 
             # Get the current element from the list
             current_element = avg_embeddings[i]
-
-            # Initialize the list for embedding differences
             embedding_diff = []
 
-            # Calculate the absolute difference for each tweet in the current file
             for tweet_embedding in df['embedding']:
                 embedding_diff.append(abs(tweet_embedding - current_element))
 
@@ -115,8 +109,6 @@ def embeddings():
 
             # Get the current element from the list
             current_element = avg_embeddings[i]
-
-            # Initialize the list for embedding differences
             embedding_diff = []
 
             # Calculate the absolute difference for each tweet in the current file
@@ -134,7 +126,6 @@ def embeddings():
     # Loop through all the CSV files in the directory
     for i, filename in enumerate(os.listdir(directory)):
         if filename.endswith('.csv'):
-            # Read the CSV file
             file_path = os.path.join(directory, filename)
             df = pd.read_csv(file_path)
 
@@ -151,7 +142,6 @@ def embeddings():
             # Extract the trend name from the original filename
             trend = filename.split('_')[1].split('.')[0]
 
-            # Define the output filename
             output_filename = f"answer_{trend}.csv"
 
             # Save the "Tweet" column to a new CSV file in the answers directory

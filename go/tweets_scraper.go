@@ -13,6 +13,7 @@ import (
 
 func not_main() {
 	scraper := twitterscraper.New()
+	//scraper.LoginOpenAccount()
 	trends, err := scraper.GetTrends()
 	if err != nil {
 		panic(err)
@@ -37,7 +38,7 @@ func not_main() {
 func main() {
 	not_main()
 	scraper := twitterscraper.New()
-	// Read the queries from a text file named "trends.txt"
+	//scraper.IsLoggedIn()
 	queryFile, err := os.Open("files/trends.txt")
 	if err != nil {
 		panic(err)
@@ -61,8 +62,7 @@ func main() {
 			text := strings.Split(tweet.Text, "http")[0]
 			// Remove "@" symbols from the tweet text
 			text = strings.ReplaceAll(text, "@", "")
-
-			// Add the tweet to the corresponding trend in the map
+			// add it to the map
 			trendTweets[query] = append(trendTweets[query], text)
 		}
 	}
