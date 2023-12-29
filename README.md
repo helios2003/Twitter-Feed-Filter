@@ -1,5 +1,8 @@
 # Twitter-Feed-Filter
 
+## Status
+As of late 2023, all methods to obtain Twitter data require authentication. This was not the case when the project was built. Hence, this feature is not supported now. But all the methods remain exactly same. The authentication feature can be added in the future (Open a PR for the same if interested). 
+
 ## Motivation for the Project
 This is a project done under IEEE NITK where the goal is to identify the irrelevant tweets with respect to a particular trend and removing them from the User's feed.
 It helps in keeping the feed clean and improves the User experience while using the application.
@@ -30,22 +33,22 @@ go get -u github.com/n0madic/twitter-scraper
 ## Setting up the Project
 Clone the repository using the HTTPS key:
 ```
-  https://github.com/helios2003/Twitter-Feed-Filter.git
+https://github.com/helios2003/Twitter-Feed-Filter.git
 ```
 Or you can fork the repository and git clone it from there.
 
 Navigate to the root directory and do the following:
 ### For Windows
 ```
-  python -m venv venv
-  venv/Scripts/activate
-  pip install -r src/python/requirements.txt
+python -m venv venv
+venv/Scripts/activate
+pip install -r src/python/requirements.txt
 ```
 ### For Linux
 ```
-  python -m venv venv
-  source venv/bin/activate
-  pip install -r src/python/requirements.txt
+python -m venv venv
+source venv/bin/activate
+pip install -r src/python/requirements.txt
 ``` 
 Navigate to ``flask`` directory for how to run the web app. 
   
