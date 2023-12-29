@@ -33,7 +33,7 @@ go get -u github.com/n0madic/twitter-scraper
 ## Setting up the Project
 Clone the repository using the HTTPS key:
 ```
-https://github.com/helios2003/Twitter-Feed-Filter.git
+git clone https://github.com/helios2003/Twitter-Feed-Filter.git
 ```
 Or you can fork the repository and git clone it from there.
 
